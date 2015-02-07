@@ -4,9 +4,6 @@
 #define CONST(C) \
   obj->Set(NanNew<String>(#C), NanNew<Integer>(C));
 
-#define CONST_ENUM(C) \
-    obj->Set(NanNew<String>(#C), NanNew<Integer>((int)(cv::C)));
-
 void
 Constants::Init(Handle<Object> target) {
   Persistent<Object> inner;
@@ -56,12 +53,6 @@ Constants::Init(Handle<Object> target) {
   CONST(CV_64FC2);
   CONST(CV_64FC3);
   CONST(CV_64FC4);
-
-  CONST_ENUM(INTER_NEAREST);
-  CONST_ENUM(INTER_LINEAR);
-  CONST_ENUM(INTER_AREA);
-  CONST_ENUM(INTER_CUBIC);
-  CONST_ENUM(INTER_LANCZOS4);
 
   target->Set(NanNew("Constants"), obj);
 }
